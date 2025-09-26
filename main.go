@@ -142,10 +142,12 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := mux.NewRouter() // create new route
 
-	books = append(books, Book{Id: "1", Title: "Book1", Publisher: &Company{Name: "Publisher1", Address: "New York"}, Author: "Ahmad"}) // create one book
-	books = append(books, Book{Id: "2", Title: "Book2", Publisher: &Company{Name: "Publisher2",Address: "Islamabad"}, Author: "Fahad"})                                                            // create 2nd book
-    books = append(books, Book{Id: "3", Title: "Book3", Publisher: &Company{Name: "Publisher3",Address: "Rwp"}, Author: "Fahad"})                                                            // create 2nd book
-                                                            // create 4th book
+	books = append(books, Book{Id: "1", Title: "Book1", Publisher: &Company{Name: "Publisher1", Address: "New York"}, Author: "Ahmad"})  // create one book
+	books = append(books, Book{Id: "2", Title: "Book2", Publisher: &Company{Name: "Publisher2", Address: "Islamabad"}, Author: "Fahad"}) // create 2nd book
+	books = append(books, Book{Id: "3", Title: "Book3", Publisher: &Company{Name: "Publisher3", Address: "Rwp"}, Author: "Fahad"})       // create 2nd book
+	books = append(books, Book{Id: "4", Title: "Book4", Publisher: &Company{Name: "Publisher4", Address: "Dubai"}, Author: "Sarah"})
+
+	// create 4th book
 
 	r.HandleFunc("/books", GetBooks).Methods("GET")           // read all book from books endpoint
 	r.HandleFunc("/books/{id}", GetBook).Methods("GET")       // read book for specific id 1,2,3...
